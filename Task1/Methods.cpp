@@ -6,6 +6,7 @@ Country::Country()
 	Area = 603548;
 	StateLanguage = "Ukrainian";
 	Population = 44130000;
+	CreatedCountries++;
 }
 
 Country::Country(string CountryName, double CountryArea, string Language, int CountryPopulation)
@@ -14,6 +15,7 @@ Country::Country(string CountryName, double CountryArea, string Language, int Co
 	Area = CountryArea;
 	StateLanguage = Language;
 	Population = CountryPopulation;
+	CreatedCountries++;
 }
 
 Country::Country(const Country& CountryData)
@@ -22,9 +24,13 @@ Country::Country(const Country& CountryData)
 	Area = CountryData.Area;
 	StateLanguage = CountryData.StateLanguage;
 	Population = CountryData.Population;
+	CreatedCountries++;
 }
 
-Country::~Country() {};
+Country::~Country()
+{
+	CreatedCountries--;
+};
 
 string Country::GetCountryName()
 {
@@ -75,6 +81,7 @@ Continent::Continent()
 	Countries[0] = {"Ukraine", 603548, "Ukrainian", 44130000};
 	Countries[1] = {"Germany", 357588, "German", 83240000};
 	Countries[2] = {"French Republic", 543940, "French", 67390000};
+	CreatedContinents++;
 };
 
 Continent::Continent(string ContinentName, double ContinentArea, string ContinentHemisphere, vector<Country> ContinentCountries)
@@ -83,6 +90,7 @@ Continent::Continent(string ContinentName, double ContinentArea, string Continen
 	Area = ContinentArea;
 	const string Hemisphere = ContinentHemisphere;
 	Countries = ContinentCountries;
+	CreatedContinents++;
 };
 
 Continent::Continent(const Continent& ContinentData)
@@ -91,9 +99,13 @@ Continent::Continent(const Continent& ContinentData)
 	Area = ContinentData.Area;
 	const string Hemisphere = ContinentData.Hemisphere;
 	Countries = ContinentData.Countries;
+	CreatedContinents++;
 };
 
-Continent::~Continent() {};
+Continent::~Continent() 
+{
+	CreatedContinents--;
+};
 
 string Continent::GetContinentName()
 {
@@ -139,21 +151,27 @@ River::River()
 {
 	Name = "Dnipro";
 	Length = 2201;
+	CreatedRivers++;
 };
 
 River::River(string RiverName, double RiverLength)
 {
 	Name = RiverName;
 	Length = RiverLength;
+	CreatedRivers++;
 };
 
 River::River(const River& RiverData)
 {
 	Name = RiverData.Name;
 	Length = RiverData.Length;
+	CreatedRivers++;
 };
 
-River::~River() {};
+River::~River() 
+{
+	CreatedRivers--;
+};
 
 string River::GetRiverName()
 {
@@ -182,6 +200,7 @@ Sea::Sea()
 	FlowingRivers.resize(2);
 	FlowingRivers[0] = {"Dnipro", 2200};
 	FlowingRivers[1] = {"Dnister", 1362};
+	CreatedSeas++;
 };
 /*
 Sea::Sea(string SeaName, double SeaArea, Continent SeaContinent, vector<River> ListOfRivers)
@@ -190,6 +209,7 @@ Sea::Sea(string SeaName, double SeaArea, Continent SeaContinent, vector<River> L
 	Area = SeaArea;
 	const Continent ContinentData = SeaContinent;
 	FlowingRivers = ListOfRivers;
+	CreatedSeas++;
 };
 
 Sea::Sea(const Sea& SeaData)
@@ -198,9 +218,13 @@ Sea::Sea(const Sea& SeaData)
 	Area = SeaData.Area;
 	const Continent ContinentData = SeaData.ContinentData;
 	FlowingRivers = SeaData.FlowingRivers;
+	CreatedSeas++;
 };
 */
-Sea::~Sea() {};
+Sea::~Sea()
+{
+	CreatedSeas--;
+};
 
 string Sea::GetSeaName()
 {
@@ -247,6 +271,7 @@ Star::Star()
 	Name = "Sun";
 	Type = "G2V";
 	DistanceToTheCenterOfTheGalaxy = 26000;
+	CreatedStars++;
 };
 
 Star::Star(string StarName, string StarType, double Distance)
@@ -254,6 +279,7 @@ Star::Star(string StarName, string StarType, double Distance)
 	Name = StarName;
 	Type = StarType;
 	DistanceToTheCenterOfTheGalaxy = Distance;
+	CreatedStars++;
 };
 
 Star::Star(const Star& StarData)
@@ -261,9 +287,13 @@ Star::Star(const Star& StarData)
 	Name = StarData.Name;
 	Type = StarData.Type;
 	DistanceToTheCenterOfTheGalaxy = StarData.DistanceToTheCenterOfTheGalaxy;
+	CreatedStars++;
 };
 
-Star::~Star() {};
+Star::~Star() 
+{
+	CreatedStars--;
+};
 
 string Star::GetStarName()
 {
@@ -303,6 +333,7 @@ Galaxy::Galaxy()
 	Stars.resize(2);
 	Stars[0] = {"Sirius", "A1", 20000};
 	Stars[1] = {"Betelgeuse", "Red supergiant", 30000};
+	CreatedGalaxy++;
 };
 
 Galaxy::Galaxy(string GalaxyName, int NumberInGalaxy, string Type, vector<Star> ListOfStars)
@@ -311,6 +342,7 @@ Galaxy::Galaxy(string GalaxyName, int NumberInGalaxy, string Type, vector<Star> 
 	NumberOfTheStars = NumberInGalaxy;
 	const string GalaxyType = Type;
 	Stars = ListOfStars;
+	CreatedGalaxy++;
 };
 
 Galaxy::Galaxy(const Galaxy& GalaxyData)
@@ -319,9 +351,13 @@ Galaxy::Galaxy(const Galaxy& GalaxyData)
 	NumberOfTheStars = GalaxyData.NumberOfTheStars;
 	const string GalaxyType = GalaxyData.GalaxyType;
 	Stars = GalaxyData.Stars;
+	CreatedGalaxy++;
 };
 
-Galaxy::~Galaxy() {};
+Galaxy::~Galaxy() 
+{
+	CreatedGalaxy--;
+};
 
 string Galaxy::GetGalaxyName()
 {

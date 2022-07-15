@@ -10,6 +10,7 @@ private:
 	double Area;
 	string StateLanguage;
 	int Population;
+	static int CreatedCountries;
 public:
 	Country();
 	Country(string CountryName, double CountryArea, string Language, int CountryPopulation);
@@ -32,6 +33,7 @@ private:
 	double Area;
 	static const string Hemisphere;
 	vector<Country> Countries = {};
+	static int CreatedContinents;
 private:
 	Continent();
 	Continent(string ContinentName, double ContinentArea, string ContinentHemisphere, vector<Country> ContinentCountries);
@@ -52,6 +54,7 @@ class River
 private:
 	string Name;
 	double Length;
+	static int CreatedRivers;
 public:
 	River();
 	River(string RiverName, double RiverLength);
@@ -70,6 +73,7 @@ private:
 	double Area;
 	static const Continent ContinentData;
 	vector<River> FlowingRivers = {};
+	static int CreatedSeas;
 public:
 	Sea();
 	Sea(string SeaName, double SeaArea, Continent SeaContinent, vector<River> ListOfRivers);
@@ -90,6 +94,7 @@ class Star
 private:
 	string Name, Type;
 	double DistanceToTheCenterOfTheGalaxy;
+	static int CreatedStars;
 public:
 	Star();
 	Star(string StarName, string StarType, double Distance);
@@ -110,6 +115,7 @@ private:
 	long long NumberOfTheStars;
 	static const string GalaxyType;
 	vector<Star> Stars;
+	static int CreatedGalaxy;
 public:
 	Galaxy();
 	Galaxy(string GalaxyName, int NumberInGalaxy, string Type, vector<Star> ListOfStars);
