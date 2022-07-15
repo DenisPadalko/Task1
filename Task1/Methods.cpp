@@ -197,12 +197,13 @@ Sea::Sea()
 {
 	Name = "Black Sea";
 	Area = 436402;
+	const Continent ContinentData;
 	FlowingRivers.resize(2);
 	FlowingRivers[0] = {"Dnipro", 2200};
 	FlowingRivers[1] = {"Dnister", 1362};
 	CreatedSeas++;
 };
-/*
+
 Sea::Sea(string SeaName, double SeaArea, Continent SeaContinent, vector<River> ListOfRivers)
 {
 	Name = SeaName;
@@ -220,7 +221,7 @@ Sea::Sea(const Sea& SeaData)
 	FlowingRivers = SeaData.FlowingRivers;
 	CreatedSeas++;
 };
-*/
+
 Sea::~Sea()
 {
 	CreatedSeas--;

@@ -34,7 +34,7 @@ private:
 	static const string Hemisphere;
 	vector<Country> Countries = {};
 	static int CreatedContinents;
-private:
+public:
 	Continent();
 	Continent(string ContinentName, double ContinentArea, string ContinentHemisphere, vector<Country> ContinentCountries);
 	Continent(const Continent& ContinentData);
