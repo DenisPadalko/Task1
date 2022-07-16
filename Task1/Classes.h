@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -24,6 +25,7 @@ public:
 	void SetCountryStateLanguage(string Language);
 	int GetCountryPopulation();
 	void SetCountryPopulation(int CountryPopulation);
+	void ShowInfo();
 };
 
 class Continent
@@ -31,8 +33,8 @@ class Continent
 private:
 	string Name;
 	double Area;
-	static const string Hemisphere;
-	vector<Country> Countries = {};
+	const string Hemisphere;
+	vector<Country> Countries;
 	static int CreatedContinents;
 public:
 	Continent();
@@ -47,6 +49,7 @@ public:
 	void SetContinentHemisphere(string ContinentHemisphere);
 	vector<Country> GetContinentCountries();
 	void SetContinentCountries(vector<Country> ContinentCountries);
+	void ShowInfo();
 };
 
 class River
@@ -64,6 +67,7 @@ public:
 	void SetRiverName(string RiverName);
 	double GetRiverLength();
 	void SetRiverLength(double RiverLength);
+	void ShowInfo();
 };
 
 class Sea
@@ -71,22 +75,23 @@ class Sea
 private:
 	string Name;
 	double Area;
-	static const Continent ContinentData;
-	vector<River> FlowingRivers = {};
+	static const Continent* ContinentData;
+	vector<River> FlowingRivers;
 	static int CreatedSeas;
 public:
 	Sea();
-	Sea(string SeaName, double SeaArea, Continent SeaContinent, vector<River> ListOfRivers);
+	Sea(string SeaName, double SeaArea, Continent* SeaContinent, vector<River> ListOfRivers);
 	Sea(const Sea& SeaData);
 	~Sea();
 	string GetSeaName();
 	void SetSeaName(string SeaName);
 	double GetSeaArea();
 	void SetSeaArea(double SeaArea);
-	const Continent GetSeaContinent();
+	const Continent* GetSeaContinent();
 	void SetSeaContinent(Continent& SeaContinent);
 	vector<River> GetFlowingRivers();
 	void SetFlowingRivers(vector<River> Rivers);
+	void ShowInfo();
 };
 
 class Star
@@ -106,6 +111,7 @@ public:
 	void SetStarType(string StarType);
 	double GetDistanceToTheCenterOfTheGalaxy();
 	void SetDistanceToTheCenterOfTheGalaxy(double Distance);
+	void ShowInfo();
 };
 
 class Galaxy
@@ -113,7 +119,7 @@ class Galaxy
 private:
 	string Name;
 	long long NumberOfTheStars;
-	static const string GalaxyType;
+	const string GalaxyType;
 	vector<Star> Stars;
 	static int CreatedGalaxy;
 public:
@@ -123,10 +129,11 @@ public:
 	~Galaxy();
 	string GetGalaxyName();
 	void SetGalaxyName(string GalaxyName);
-	int GetNumberOfTheStars();
+	long long GetNumberOfTheStars();
 	void SetNumberOfTheStars(int Number);
 	string GetGalaxyType();
 	void SetGalaxyType(string Type);
 	vector<Star> GetStarsOfTheGalaxy();
 	void SetStarsOfTheGalaxy(vector<Star> ListOfStars);
+	void ShowInfo();
 };
