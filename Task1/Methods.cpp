@@ -72,12 +72,18 @@ void Country::SetCountryPopulation(int CountryPopulation)
 	Population = CountryPopulation;
 };
 
-void Country::ShowInfo() 
+int Country::GetCreatedCountries() 
+{
+	return CreatedCountries;
+};
+
+void Country::ShowInfo() const
 {
 	cout << "Name of country: " << Name << endl;
 	cout << "Area of country: " << Area << endl;
 	cout << "State langugae: " << StateLanguage << endl;
-	cout << "Country population: " << Population << endl << endl;
+	cout << "Country population: " << Population << endl;
+	cout << "---------------------" << endl;
 };
 
 Continent::Continent()
@@ -155,7 +161,12 @@ void Continent::SetContinentCountries(vector<Country> ContinentCountries)
 	Countries = ContinentCountries;
 };
 
-void Continent::ShowInfo()
+int Continent::GetCreatedContinents()
+{
+	return CreatedContinents;
+};
+
+void Continent::ShowInfo() const
 {
 	cout << "Continent name: " << Name << endl;
 	cout << "Continent area: " << Area << endl;
@@ -163,9 +174,10 @@ void Continent::ShowInfo()
 	cout << "Continent countries: " << endl << endl;
 	for (int i = 0; i < Countries.size(); i++)
 	{
+		cout << i + 1 << endl;
 		Countries[i].ShowInfo();
 	}
-	cout << endl;
+	cout << "---------------------" << endl;
 }
 
 River::River()
@@ -214,17 +226,23 @@ void River::SetRiverLength(double RiverLength)
 	Length = RiverLength;
 };
 
+int River::GetCreatedRivers() 
+{
+	return CreatedRivers;
+};
+
 void River::ShowInfo() 
 {
 	cout << "River name: " << Name << endl;
-	cout << "River length: " << Name << endl << endl;
+	cout << "River length: " << Name << endl;
+	cout << "---------------------" << endl;
 }
 
 Sea::Sea()
 {
 	Name = "Black Sea";
 	Area = 436402;
-	const Continent ContinentData;
+	ContinentData = new Continent();
 	FlowingRivers.resize(2);
 	FlowingRivers[0] = {"Dnipro", 2200};
 	FlowingRivers[1] = {"Dnister", 1362};
@@ -244,7 +262,7 @@ Sea::Sea(const Sea& SeaData)
 {
 	Name = SeaData.Name;
 	Area = SeaData.Area;
-	const Continent* ContinentData = SeaData.ContinentData;
+	ContinentData = new Continent(*SeaData.ContinentData);
 	FlowingRivers = SeaData.FlowingRivers;
 	CreatedSeas++;
 };
@@ -294,17 +312,24 @@ void Sea::SetFlowingRivers(vector<River> Rivers)
 	FlowingRivers = Rivers;
 };
 
+int Sea::GetCreatedSeas() 
+{
+	return CreatedSeas;
+};
+
 void Sea::ShowInfo()
 {
 	cout << "Sea name: " << Name << endl;
 	cout << "Sea area: " << Area << endl;
 	cout << "Continent: " << endl;
-	//(*ContinentData).ShowInfo();
+	(*ContinentData).ShowInfo();
+	cout << "Flowing rivers: " << endl;
 	for (int i = 0; i < FlowingRivers.size(); i++)
 	{
+		cout << i + 1 << endl;
 		FlowingRivers[i].ShowInfo();
 	}
-	cout << endl;
+	cout << "---------------------" << endl;
 }
 
 Star::Star()
@@ -366,11 +391,17 @@ void Star::SetDistanceToTheCenterOfTheGalaxy(double Distance)
 	DistanceToTheCenterOfTheGalaxy = Distance;
 };
 
+int Star::GetCreatedStars() 
+{
+	return CreatedStars;
+};
+
 void Star::ShowInfo() 
 {
 	cout << "Star name: " << Name << endl;
 	cout << "Type of star: " << Type << endl;
-	cout << "Distance to the center of the galaxy: " << DistanceToTheCenterOfTheGalaxy << endl << endl;
+	cout << "Distance to the center of the galaxy: " << DistanceToTheCenterOfTheGalaxy << endl;
+	cout << "---------------------" << endl;
 }
 
 Galaxy::Galaxy()
@@ -447,6 +478,11 @@ void Galaxy::SetStarsOfTheGalaxy(vector<Star> ListOfStars)
 	Stars = ListOfStars;
 };
 
+int Galaxy::GetCreatedGalaxy() 
+{
+	return CreatedGalaxy;
+};
+
 void Galaxy::ShowInfo()
 {
 	cout << "Galaxy name: " << Name << endl;
@@ -455,7 +491,8 @@ void Galaxy::ShowInfo()
 	cout << "Stars in the galaxy: " << endl;
 	for (int i = 0; i < Stars.size(); i++) 
 	{
+		cout << i + 1 << endl;
 		Stars[i].ShowInfo();
 	}
-	cout << endl;
+	cout << "---------------------" << endl;
 }

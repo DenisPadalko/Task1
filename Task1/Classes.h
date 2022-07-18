@@ -25,7 +25,8 @@ public:
 	void SetCountryStateLanguage(string Language);
 	int GetCountryPopulation();
 	void SetCountryPopulation(int CountryPopulation);
-	void ShowInfo();
+	int GetCreatedCountries();
+	void ShowInfo() const;
 };
 
 class Continent
@@ -33,7 +34,7 @@ class Continent
 private:
 	string Name;
 	double Area;
-	const string Hemisphere;
+	const string Hemisphere = "Northern";
 	vector<Country> Countries;
 	static int CreatedContinents;
 public:
@@ -49,7 +50,8 @@ public:
 	void SetContinentHemisphere(string ContinentHemisphere);
 	vector<Country> GetContinentCountries();
 	void SetContinentCountries(vector<Country> ContinentCountries);
-	void ShowInfo();
+	int GetCreatedContinents();
+	void ShowInfo() const;
 };
 
 class River
@@ -67,6 +69,7 @@ public:
 	void SetRiverName(string RiverName);
 	double GetRiverLength();
 	void SetRiverLength(double RiverLength);
+	int GetCreatedRivers();
 	void ShowInfo();
 };
 
@@ -75,7 +78,7 @@ class Sea
 private:
 	string Name;
 	double Area;
-	static const Continent* ContinentData;
+	const Continent* ContinentData;
 	vector<River> FlowingRivers;
 	static int CreatedSeas;
 public:
@@ -91,6 +94,7 @@ public:
 	void SetSeaContinent(Continent& SeaContinent);
 	vector<River> GetFlowingRivers();
 	void SetFlowingRivers(vector<River> Rivers);
+	int GetCreatedSeas();
 	void ShowInfo();
 };
 
@@ -111,6 +115,7 @@ public:
 	void SetStarType(string StarType);
 	double GetDistanceToTheCenterOfTheGalaxy();
 	void SetDistanceToTheCenterOfTheGalaxy(double Distance);
+	int GetCreatedStars();
 	void ShowInfo();
 };
 
@@ -135,5 +140,6 @@ public:
 	void SetGalaxyType(string Type);
 	vector<Star> GetStarsOfTheGalaxy();
 	void SetStarsOfTheGalaxy(vector<Star> ListOfStars);
+	int GetCreatedGalaxy();
 	void ShowInfo();
 };
