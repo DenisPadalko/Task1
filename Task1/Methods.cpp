@@ -32,7 +32,7 @@ Country::~Country()
 	CreatedCountries--;
 };
 
-string Country::GetCountryName()
+const string& Country::GetCountryName()
 {
 	return Name;
 };
@@ -42,7 +42,7 @@ void Country::SetCountryName(const string& CountryName)
 	Name = CountryName;
 };
 
-double Country::GetCountryArea()
+const double& Country::GetCountryArea()
 {
 	return Area;
 };
@@ -52,7 +52,7 @@ void Country::SetCountryArea(const double CountryArea)
 	Area = CountryArea;
 };
 
-string Country::GetCountryStateLanguage()
+const string& Country::GetCountryStateLanguage()
 {
 	return StateLanguage;
 };
@@ -62,7 +62,7 @@ void Country::SetCountryStateLanguage(const string& Language)
 	StateLanguage = Language;
 };
 
-int Country::GetCountryPopulation()
+const int& Country::GetCountryPopulation()
 {
 	return Population;
 };
@@ -72,7 +72,7 @@ void Country::SetCountryPopulation(const int CountryPopulation)
 	Population = CountryPopulation;
 };
 
-int Country::GetCreatedCountries() 
+const int& Country::GetCreatedCountries() 
 {
 	return CreatedCountries;
 };
@@ -121,7 +121,7 @@ Continent::~Continent()
 	CreatedContinents--;
 };
 
-string Continent::GetContinentName()
+const string& Continent::GetContinentName()
 {
 	return Name;
 };
@@ -131,7 +131,7 @@ void Continent::SetContinentName(const string& ContinentName)
 	Name = ContinentName;
 };
 
-double Continent::GetContinentArea()
+const double& Continent::GetContinentArea()
 {
 	return Area;
 };
@@ -141,7 +141,7 @@ void Continent::SetContinentArea(const double ContinentArea)
 	Area = ContinentArea;
 };
 
-string Continent::GetContinentHemisphere()
+const string& Continent::GetContinentHemisphere()
 {
 	return Hemisphere;
 };
@@ -151,7 +151,7 @@ void Continent::SetContinentHemisphere(const string& ContinentHemisphere)
 	const string Hemisphere = ContinentHemisphere;
 };
 
-vector<Country> Continent::GetContinentCountries()
+const vector<Country>& Continent::GetContinentCountries()
 {
 	return Countries;
 };
@@ -161,7 +161,7 @@ void Continent::SetContinentCountries(const vector<Country>& ContinentCountries)
 	Countries = ContinentCountries;
 };
 
-int Continent::GetCreatedContinents()
+const int& Continent::GetCreatedContinents()
 {
 	return CreatedContinents;
 };
@@ -206,7 +206,7 @@ River::~River()
 	CreatedRivers--;
 };
 
-string River::GetRiverName()
+const string& River::GetRiverName()
 {
 	return Name;
 };
@@ -216,7 +216,7 @@ void River::SetRiverName(const string& RiverName)
 	Name = RiverName;
 };
 
-double River::GetRiverLength()
+const double& River::GetRiverLength()
 {
 	return Length;
 };
@@ -226,7 +226,7 @@ void River::SetRiverLength(const double RiverLength)
 	Length = RiverLength;
 };
 
-int River::GetCreatedRivers() 
+const int& River::GetCreatedRivers() 
 {
 	return CreatedRivers;
 };
@@ -272,7 +272,7 @@ Sea::~Sea()
 	CreatedSeas--;
 };
 
-string Sea::GetSeaName()
+const string& Sea::GetSeaName()
 {
 	return Name;
 };
@@ -282,7 +282,7 @@ void Sea::SetSeaName(const string& SeaName)
 	Name = SeaName;
 };
 
-double Sea::GetSeaArea()
+const double& Sea::GetSeaArea()
 {
 	return Area;
 };
@@ -302,7 +302,7 @@ void Sea::SetSeaContinent(const Continent& SeaContinent)
 	const Continent* ContinentData(&SeaContinent);
 };
 
-vector<River> Sea::GetFlowingRivers()
+const vector<River>& Sea::GetFlowingRivers()
 {
 	return FlowingRivers;
 };
@@ -312,7 +312,7 @@ void Sea::SetFlowingRivers(const vector<River>& Rivers)
 	FlowingRivers = Rivers;
 };
 
-int Sea::GetCreatedSeas() 
+const int& Sea::GetCreatedSeas() 
 {
 	return CreatedSeas;
 };
@@ -361,7 +361,7 @@ Star::~Star()
 	CreatedStars--;
 };
 
-string Star::GetStarName()
+const string& Star::GetStarName()
 {
 	return Name;
 };
@@ -371,7 +371,7 @@ void Star::SetStarName(const string& StarName)
 	Name = StarName;
 };
 
-string Star::GetStarType()
+const string& Star::GetStarType()
 {
 	return Type;
 };
@@ -381,7 +381,7 @@ void Star::SetStarType(const string& StarType)
 	Type = StarType;
 };
 
-double Star::GetDistanceToTheCenterOfTheGalaxy()
+const double& Star::GetDistanceToTheCenterOfTheGalaxy()
 {
 	return DistanceToTheCenterOfTheGalaxy;
 };
@@ -391,7 +391,7 @@ void Star::SetDistanceToTheCenterOfTheGalaxy(const double Distance)
 	DistanceToTheCenterOfTheGalaxy = Distance;
 };
 
-int Star::GetCreatedStars() 
+const int& Star::GetCreatedStars() 
 {
 	return CreatedStars;
 };
@@ -438,7 +438,7 @@ Galaxy::~Galaxy()
 	CreatedGalaxy--;
 };
 
-string Galaxy::GetGalaxyName()
+const string& Galaxy::GetGalaxyName()
 {
 	return Name;
 };
@@ -448,7 +448,7 @@ void Galaxy::SetGalaxyName(const string& GalaxyName)
 	Name = GalaxyName;
 };
 
-long long Galaxy::GetNumberOfTheStars()
+const long long& Galaxy::GetNumberOfTheStars()
 {
 	return NumberOfTheStars;
 };
@@ -458,7 +458,7 @@ void Galaxy::SetNumberOfTheStars(const int Number)
 	NumberOfTheStars = Number;
 };
 
-string Galaxy::GetGalaxyType()
+const string& Galaxy::GetGalaxyType()
 {
 	return GalaxyType;
 };
@@ -468,7 +468,7 @@ void Galaxy::SetGalaxyType(const string& Type)
 	const string GalaxyType = Type;
 };
 
-vector<Star> Galaxy::GetStarsOfTheGalaxy()
+const vector<Star>& Galaxy::GetStarsOfTheGalaxy()
 {
 	return Stars;
 };
@@ -478,7 +478,7 @@ void Galaxy::SetStarsOfTheGalaxy(const vector<Star>& ListOfStars)
 	Stars = ListOfStars;
 };
 
-int Galaxy::GetCreatedGalaxy() 
+const int& Galaxy::GetCreatedGalaxy() 
 {
 	return CreatedGalaxy;
 };

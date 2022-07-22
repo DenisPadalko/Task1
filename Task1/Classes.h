@@ -17,15 +17,15 @@ public:
 	Country(const string& CountryName, const double CountryArea, const string& Language, const int CountryPopulation);
 	Country(const Country& CountryData);
 	~Country();
-	string GetCountryName();
+	const string& GetCountryName();
 	void SetCountryName(const string& CountryName);
-	double GetCountryArea();
+	const double& GetCountryArea();
 	void SetCountryArea(const double CountryArea);
-	string GetCountryStateLanguage();
+	const string& GetCountryStateLanguage();
 	void SetCountryStateLanguage(const string& Language);
-	int GetCountryPopulation();
+	const int& GetCountryPopulation();
 	void SetCountryPopulation(const int CountryPopulation);
-	int GetCreatedCountries();
+	const int& GetCreatedCountries();
 	void ShowInfo() const;
 };
 
@@ -42,15 +42,15 @@ public:
 	Continent(const string& ContinentName, const double ContinentArea, const string& ContinentHemisphere, const vector<Country>& ContinentCountries);
 	Continent(const Continent& ContinentData);
 	~Continent();
-	string GetContinentName();
+	const string& GetContinentName();
 	void SetContinentName(const string& ContinentName);
-	double GetContinentArea();
+	const double& GetContinentArea();
 	void SetContinentArea(const double ContinentArea);
-	string GetContinentHemisphere();
+	const string& GetContinentHemisphere();
 	void SetContinentHemisphere(const string& ContinentHemisphere);
-	vector<Country> GetContinentCountries();
+	const vector<Country>& GetContinentCountries();
 	void SetContinentCountries(const vector<Country>& ContinentCountries);
-	int GetCreatedContinents();
+	const int& GetCreatedContinents();
 	void ShowInfo() const;
 };
 
@@ -65,11 +65,11 @@ public:
 	River(const string& RiverName, const double RiverLength);
 	River(const River& RiverData);
 	~River();
-	string GetRiverName();
+	const string& GetRiverName();
 	void SetRiverName(const string& RiverName);
-	double GetRiverLength();
+	const double& GetRiverLength();
 	void SetRiverLength(const double RiverLength);
-	int GetCreatedRivers();
+	const int& GetCreatedRivers();
 	void ShowInfo();
 };
 
@@ -86,15 +86,15 @@ public:
 	Sea(const string& SeaName, const double SeaArea, const Continent* SeaContinent, const vector<River>& ListOfRivers);
 	Sea(const Sea& SeaData);
 	~Sea();
-	string GetSeaName();
+	const string& GetSeaName();
 	void SetSeaName(const string& SeaName);
-	double GetSeaArea();
+	const double& GetSeaArea();
 	void SetSeaArea(const double SeaArea);
 	const Continent* GetSeaContinent();
 	void SetSeaContinent(const Continent& SeaContinent);
-	vector<River> GetFlowingRivers();
+	const vector<River>& GetFlowingRivers();
 	void SetFlowingRivers(const vector<River>& Rivers);
-	int GetCreatedSeas();
+	const int& GetCreatedSeas();
 	void ShowInfo();
 };
 
@@ -109,13 +109,13 @@ public:
 	Star(const string& StarName, const string& StarType, const double Distance);
 	Star(const Star& StarData);
 	~Star();
-	string GetStarName();
+	const string& GetStarName();
 	void SetStarName(const string& StarName);
-	string GetStarType();
+	const string& GetStarType();
 	void SetStarType(const string& StarType);
-	double GetDistanceToTheCenterOfTheGalaxy();
+	const double& GetDistanceToTheCenterOfTheGalaxy();
 	void SetDistanceToTheCenterOfTheGalaxy(const double Distance);
-	int GetCreatedStars();
+	const int& GetCreatedStars();
 	void ShowInfo();
 };
 
@@ -132,14 +132,14 @@ public:
 	Galaxy(const string& GalaxyName, const int NumberInGalaxy, const string& Type, const vector<Star>& ListOfStars);
 	Galaxy(const Galaxy& GalaxyData);
 	~Galaxy();
-	string GetGalaxyName();
+	const string& GetGalaxyName();
 	void SetGalaxyName(const string& GalaxyName);
-	long long GetNumberOfTheStars();
+	const long long& GetNumberOfTheStars();
 	void SetNumberOfTheStars(const int Number);
-	string GetGalaxyType();
+	const string& GetGalaxyType();
 	void SetGalaxyType(const string& Type);
-	vector<Star> GetStarsOfTheGalaxy();
+	const vector<Star>& GetStarsOfTheGalaxy();
 	void SetStarsOfTheGalaxy(const vector<Star>& ListOfStars);
-	int GetCreatedGalaxy();
+	const int& GetCreatedGalaxy();
 	void ShowInfo();
 };
